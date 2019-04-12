@@ -1,9 +1,9 @@
 provider "libvirt" {
-  uri = "${var.libvirt_uri}"
+  uri = "${var.LibvirtURI}"
 }
 
 provider "ironic" {
-  url          = "${var.ironic_uri}"
+  url          = "${var.IronicURI}"
   microversion = "1.50"
 }
 
@@ -11,34 +11,24 @@ module "bootstrap" {
   source = "./bootstrap"
 
   cluster_id       = "${var.cluster_id}"
-  image            = "${var.os_image}"
+  image            = "${var.Image}"
   ignition         = "${var.ignition_bootstrap}"
-  baremetal_bridge = "${var.baremetal_bridge}"
-  overcloud_bridge = "${var.overcloud_bridge}"
+  baremetal_bridge = "${var.BareMetalBridge}"
+  overcloud_bridge = "${var.OverCloudBridge}"
 }
 
 module "masters" {
   source = "./masters"
 
   ignition       = "${var.ignition_master}"
-  image_source   = "${var.master_configuration["image_source"]}"
-  image_checksum = "${var.master_configuration["image_checksum"]}"
-  root_gb        = "${var.master_configuration["root_gb"]}"
-  root_disk      = "${var.master_configuration["root_disk"]}"
+  image_source   = "${var.MasterConfiguration["ImageSource"]}"
+  image_checksum = "${var.MasterConfiguration["ImageChecksum"]}"
+  root_gb        = "${var.MasterConfiguration["RootGb"]}"
+  root_disk      = "${var.MasterConfiguration["RootDisk"]}"
 
-  master_0 = "${var.master_0}"
-  properties_0 = "${var.properties_0}"
-  root_device_0 = "${var.root_device_0}"
-  driver_info_0 = "${var.driver_info_0}"
-
-  master_1 = "${var.master_1}"
-  properties_1 = "${var.properties_1}"
-  root_device_1 = "${var.root_device_1}"
-  driver_info_1 = "${var.driver_info_1}"
-
-  master_2 = "${var.master_2}"
-  properties_2 = "${var.properties_2}"
-  root_device_2 = "${var.root_device_2}"
-  driver_info_2 = "${var.driver_info_2}"
+  master_nodes = "${var.MasterNodes}"
+  properties = "${var.Properties}"
+  root_devices = "${var.RootDevices}"
+  driver_infos = "${var.DriverInfos}"
 }
 

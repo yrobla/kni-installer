@@ -1,91 +1,49 @@
-variable "ironic_uri" {
+variable "IronicURI" {
   type = "string"
   description = "ironic connection URI"
 }
 
-variable "libvirt_uri" {
+variable "LibvirtURI" {
   type = "string"
   description = "libvirt connection URI"
 }
 
-variable "os_image" {
+variable "Image" {
   type = "string"
   description = "The URL of the OS disk image"
 }
 
-variable "baremetal_bridge" {
+variable "BareMetalBridge" {
   type = "string"
   description = "The name of the baremetal bridge"
 }
 
-variable "overcloud_bridge" {
+variable "OverCloudBridge" {
   type = "string"
   description = "The name of the overcloud bridge"
 }
 
-variable "master_configuration" {
+variable "MasterConfiguration" {
   type = "map"
   description = "Configuration information for masters such as image location"
 }
 
-variable "master_0" {
+variable "MasterNodes" {
   type = "map"
-  description = "Master 0 bare metal node details"
+  description = "Master bare metal node details"
 }
 
-variable "properties_0" {
+variable "Properties" {
   type = "map"
-  description = "Master 0 bare metal properties"
+  description = "Master bare metal properties"
 }
 
-variable "root_device_0" {
+variable "RootDevices" {
   type = "map"
-  description = "Master 0 root device configuration"
+  description = "Master root device configurations"
 }
 
-variable "driver_info_0" {
+variable "DriverInfos" {
   type = "map"
-  description = "Master 0 driver info"
+  description = "Master driver infos"
 }
-
-variable "master_1" {
-  type = "map"
-  description = "Master 1 bare metal node details"
-}
-
-variable "properties_1" {
-  type = "map"
-  description = "Master 1 bare metal properties"
-}
-
-variable "root_device_1" {
-  type = "map"
-  description = "Master 1 root device configuration"
-}
-
-variable "driver_info_1" {
-  type = "map"
-  description = "Master 1 driver info"
-}
-
-variable "master_2" {
-  type = "map"
-  description = "Master 2 bare metal node details"
-}
-
-variable "properties_2" {
-  type = "map"
-  description = "Master 2 bare metal properties"
-}
-
-variable "root_device_2" {
-  type = "map"
-  description = "Master 2 root device configuration"
-}
-
-variable "driver_info_2" {
-  type = "map"
-  description = "Master 2 driver info"
-}
-
-
